@@ -230,15 +230,7 @@
   <!-- 🔥 Latest Activities -->
   <section id="latest">
     <h2>Latest IT Programming Tasks in UC-B</h2>
-    <div class="services">
-      <div class="card">
-        <h3>COMPROG</h3>
-        <p>Write a C program to convert a given integer (in days) to years and months (assuming all months = 30 days, all years = 365 days). Then, convert the days to hours (days × 24).</p>
-      </div>
-      <div class="card">
-        <h3>IT WEB-DEV</h3>
-        <p>Create a simple grade calculator using if-else conditions.</p>
-      </div>
+    <div class="services" id="task-container">
     </div>
     <p style="text-align:center; margin-top:1rem; color:#aaa;">Updated everyday!</p>
   </section>
@@ -271,6 +263,21 @@
   <footer>
     <p>© 2025 @cajx | Student Coding Services</p>
   </footer>
-
+  <script>
+    fetch("latest-tasks.json")
+      .then(res => res.json())
+      .then(tasks => {
+        const container = document.getElementById("task-container");
+        tasks.forEach(task => {
+          container.innerHTML += `
+            <div class="card">
+              <h3>${task.subject}</h3>
+              <p>${task.description}</p>
+            </div>
+          `;
+        });
+      })
+      .catch(err => console.error("Failed to load tasks:", err));
+  </script>
 </body>
 </html>
