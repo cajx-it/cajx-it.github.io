@@ -1,284 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="logo.png">
-  <title>Cajx-IT</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./source/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <title>Cajx-IT</title>
+</head> 
+<body class="bg-[#1a1a1a]">
 
-    body {
-      background: #121212;
-      color: #e0e0e0;
-      line-height: 1.6;
-    }
+<!-- Navbar --> 
+<nav class="bg-[#1a1a1a] border-b-[0.5px] border-b-[#1DCD9F] sticky top-0 z-50">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 text-white">
+    <!-- Logo -->
+    <a href="#home" class="flex items-center mx-1 space-x-2 max-sm:mx-1 rtl:space-x-reverse">
+      <img src="./assets/logo.png" class="h-8 " alt="Logo" />
+      
+    </a>
 
-    /* --------------------
-       NAVBAR
-    -------------------- */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #1a1a1a;
-      padding: 0.8rem 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      border-bottom: 2px solid #0d7377;
-    }
+    <!-- Hamburger -->
+    <button data-collapse-toggle="navbar-menu" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-white rounded-lg md:hidden hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 17 14" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+      </svg>
+    </button>
 
-    nav a {
-      color: #e0e0e0;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #14ffec;
-    }
-
-    header {
-      background: linear-gradient(135deg, #0d7377, #14ffec);
-      color: #fff;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.9rem 1.4rem;
-      background: #14ffec;
-      color: #000;
-      font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #0d7377;
-      color: #fff;
-    }
-
-    section {
-      padding: 2.5rem 1rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #14ffec;
-      font-size: 2rem;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: #1e1e1e;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(20, 255, 236, 0.3);
-    }
-
-    .card h3 {
-      margin-bottom: 0.7rem;
-      color: #14ffec;
-    }
-
-    .cta {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: #1a1a1a;
-      border-top: 2px solid #0d7377;
-    }
-
-    .cta h2 {
-      color: #14ffec;
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #0a0a0a;
-      color: #888;
-      font-size: 0.9rem;
-    }
-
-    /* --------------------
-       RESPONSIVE STYLES
-    -------------------- */
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      header h1 {
-        font-size: 2rem;
-      }
-
-      header p {
-        font-size: 1rem;
-      }
-
-      h2 {
-        font-size: 1.6rem;
-      }
-
-      .card {
-        padding: 1.2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      nav {
-        display: none; /* 🔥 Hide navbar on mobile */
-      }
-
-      header {
-        padding: 2rem 1rem;
-      }
-
-      header h1 {
-        font-size: 1.6rem;
-      }
-
-      header p {
-        font-size: 0.95rem;
-      }
-
-      .btn {
-        display: block;
-        margin: 1.2rem auto 0 auto;
-        width: 80%;
-        text-align: center;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- 🔝 Navbar -->
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#latest">Latest Tasks</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <header>
-    <h1>Hi! I'm Cajx 👨‍💻</h1>
-    <p><b>I help 1st year IT and Computer Science students with coding activities, debugging, and project explanations.</b></p>
-    <a href="#contact" class="btn">Get Coding Help Now</a>
-  </header>
-
-  <section id="services">
-    <h2>My Services</h2>
-    <div class="services">
-      <div class="card">
-        <h3>🔧 Debugging for Beginners</h3>
-        <p>Fix errors in your C program. I’ll explain what went wrong in simple terms.</p>
-      </div>
-      <div class="card">
-        <h3>💻 Assignments</h3>
-        <p>From basic input/output to loops, arrays, and functions — I’ll deliver working solutions tailored to your teacher’s requirements.</p>
-      </div>
-      <div class="card">
-        <h3>📄 Documentation</h3>
-        <p>Need comments, flowcharts, or step-by-step explanations? I’ll prepare them so you can understand and present.</p>
-      </div>
+    <!-- Menu -->
+    <div class="hidden w-full md:block md:w-auto" id="navbar-menu">
+      <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg md:flex-row md:mt-0 md:border-0 md:bg-[#1a1a1a] md:dark:bg-[#1a1a1a]">
+        <li>
+          <a href="#home" class="block py-2 px-3 md:px-4 hover:text-[#1DCD9F] transition-colors">Home</a>
+        </li>
+        <li>
+          <a href="#about" class="block py-2 px-3 md:px-4 hover:text-[#1DCD9F] transition-colors">About</a>
+        </li>
+        <li>
+          <a href="#projects" class="block py-2 px-3 md:px-4 hover:text-[#1DCD9F] transition-colors">Projects</a>
+        </li>
+        <li>
+          <a href="#contact" class="block py-2 px-3 md:px-4 hover:text-[#1DCD9F] transition-colors">Contact</a>
+        </li>
+      </ul>
     </div>
-  </section>
+    <div class="hidden md:block ">
+      <a href="https://github.com/cajx-it" class="btn text-[#1DCD9F] bg-[#1a1a1a] border-[#1DCD9F] w-32 hover:bg-[#1DCD9F] hover:text-[#1a1a1a] transition duration-300">
+        Github  
+      </a>
 
-  <!-- 🔥 Latest Activities -->
-  <section id="latest">
-    <h2>Latest IT Programming Tasks in UC-B</h2>
-    <div class="services" id="task-container">
     </div>
-    <p style="text-align:center; margin-top:1rem; color:#aaa;">Updated everyday!</p>
-  </section>
+  </div>
+</nav>
 
-  <section id="pricing">
-    <h2>Pricing</h2>
-    <div class="services">
-      <div class="card">
-        <h3>Small Fix</h3>
-        <p>Debugging<br><strong>₱50–₱100</strong></p>
-      </div>
-      <div class="card">
-        <h3>Simple Activity</h3>
-        <p>Assignments<br><strong>₱150–₱200</strong></p>
-      </div>
-      <div class="card">
-        <h3>Full Project</h3>
-        <p>With Explanation<br><strong>₱300+</strong></p>
-      </div>
+
+
+<!-- Hero Section -->
+<div class="hero  bg-[#1a1a1a] min-h-screen text-center" data-aos="fade-up"  id="home">
+  <div class="hero-content flex-col lg:flex-row-reverse ">
+    <div>
+      <h1 class="text-6xl font-bold max-sm:text-5xl ">Hi, I'm Cajx!</h1><p class="mt-5 text-3xl sm:text-4xl md:text-5xl">👨‍💻</p>
+      <p class="py-6">
+        Maker | IoT Enthusiast | N8N Flowgrammer | Web Dev | Red Teamer
+      </p>
+      <a href="#contact" class="btn text-[#1DCD9F] bg-[#1a1a1a] border-[#1DCD9F] w-50 hover:bg-[#1DCD9F] hover:text-[#1a1a1a] transition duration-300">
+        Hire me!
+      </a>
     </div>
-    <p style="text-align:center; margin-top:1rem; color:#aaa;">Final price depends on difficulty — message me for a quote.</p>
-  </section>
+  </div>
+</div>
+<!--About Me-->
+<div class="bg-[#1a1a1a] min-h-[500px] text-center  mb-10 break-words" data-aos="fade-up"  id="about">
+  <!-- Section Title -->
+  <div class="border-b-[0.9px] border-b-[#1DCD9F] w-60 mx-auto pt-20">
+    <p class="text-3xl font-bold pb-4">ABOUT ME</p>
+  </div>
 
-  <section id="contact" class="cta">
-    <h2>Let’s Work Together!</h2>
-    <p>Stop stressing over bugs and errors — let me help you with your coding tasks.</p>
-    <a href="https://www.facebook.com/profile.php?id=61580610592314" class="btn">Message Me on Messenger</a>
-  </section>
+  <!-- Content Box -->
+  <div class="mt-10 border border-[#1DCD9F] mx-auto rounded-lg p-6 sm:p-8 md:p-10 w-[70%] sm:w-[60%] md:w-[50%] lg:w-[40%]">
+    <p class="text-base sm:text-lg md:text-xl leading-relaxed">
+      I’m Cajx, an IT student passionate about building and experimenting with technology. 
+      From web development and IoT projects to automation with n8n, I love turning ideas 
+      into real solutions while continuously learning and growing in the IT field.
+    </p>
+  </div>
+</div>
 
-  <footer>
-    <p>© 2025 @cajx | Student Coding Services</p>
-  </footer>
-  <script>
-    fetch("latest-tasks.json")
-      .then(res => res.json())
-      .then(tasks => {
-        const container = document.getElementById("task-container");
-        tasks.forEach(task => {
-          container.innerHTML += `
-            <div class="card">
-              <h3>${task.subject}</h3>
-              <p>${task.description}</p>
+
+
+
+<!-- Projects -->
+<div class="bg-[#1a1a1a] min-h-screen  text-center break-words " data-aos="fade-up" id="projects">
+  <div class="border-b-[0.9px] border-b-[#1DCD9F] w-60 mx-auto pt-20">
+    <p class="text-3xl font-bold pb-4">PROJECTS</p>
+  </div>
+    <div class="flex justify-center flex-wrap mt-10 gap-10">
+        <div class="card bg-[#2e2a2a] border-b-2 border-b-[#1DCD9F] w-65 shadow-sm rounded-2xl mb-10 hover:scale-105 transition-transform duration-300">
+          <figure>
+            <img
+            src="./assets/landing (1).png"
+            alt="Shoes"
+            class="object-cover h-48 w-full rounded-t-2xl" />
+          </figure>
+          <div class="card-body text-center">
+            <h2 class="text-2xl font-bold">
+            POS Price-Checker
+            </h2>
+            <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+            <div class="card-actions justify-end">
+              <div class="badge badge-outline"><a href="https://github.com/cajx-it/Simple-Price-Checker-POS">Github</a></div>
             </div>
-          `;
-        });
-      })
-      .catch(err => console.error("Failed to load tasks:", err));
-  </script>
+          </div>
+        </div>
+
+        <div class="card bg-[#2e2a2a] border-b-2 border-b-[#1DCD9F] w-65 shadow-sm rounded-2xl mb-10 hover:scale-105 transition-transform duration-300">
+          <figure>
+            <img
+            src="./assets/Rpi (1).jpg"
+            alt="Shoes"
+            class="object-cover h-48 w-full rounded-t-2xl" />
+          </figure>
+          <div class="card-body text-center">
+            <h2 class="text-2xl font-bold">
+            Rpi Spy Camera
+            </h2>
+            <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+            <div class="card-actions justify-end">
+              <div class="badge badge-outline"><a href="https://github.com/cajx-it/Rpi-RemoteCar">Github</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-[#2e2a2a] border-b-2 border-b-[#1DCD9F]  w-65 shadow-sm rounded-2xl mb-10 hover:scale-105 transition-transform duration-300">
+          <figure>
+            <img
+            src="./assets/Wifi.png"
+            alt="Shoes"
+            class="object-cover h-48 w-full rounded-t-2xl" />
+          </figure>
+          <div class="card-body text-center">
+            <h2 class="text-2xl font-bold">
+            PLDT Vulnerability
+            </h2>
+            <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+            <div class="card-actions justify-end">
+              <div class="badge badge-outline"><a href="https://github.com/cajx-it/PLDT_VULNERABILITY">Github</a></div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Contact -->
+<div class="bg-[#1a1a1a] min-h-[400px] text-center  break-words" data-aos="fade-up" id="contact">
+  <div class="border-b-[0.9px] border-b-[#1DCD9F] w-60 mx-auto pt-20">
+    <p class="text-3xl font-bold pb-4">CONTACT</p>
+  </div>
+
+  <div class="mt-10 border border-[#1DCD9F] mx-auto rounded-lg p-6 sm:p-8 md:p-10 w-[70%] sm:w-[60%] md:w-[50%] lg:w-[40%]">
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+      <a href="mailto:alcantaracalvinjade@gmail.com" class="btn btn-outline w-32 ">Gmail</a>
+      <a href="https://www.facebook.com/calvinjade.alcantara.37" class="btn btn-outline w-32">Facebook</a>
+      <a href="https://www.instagram.com/cjalcantara94/" class="btn btn-outline w-32">Instagram</a>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="footer sm:footer-horizontal bg-[#1a1a1a] text-neutral-content items-center border-t-[0.5px] border-t-[#1DCD9F] p-4 mt-10">
+  <aside class="grid-flow-col items-center mx-auto">
+    <svg
+      width="36"
+      height="36"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      class="fill-current">
+      <path
+        d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
+    </svg>
+    <p>Copyright © 2025 - All right reserved</p>
+  </aside>
+  
+</footer>
+
+<script src="./source/flowbite.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+
+
+
+
+
 </body>
 </html>
