@@ -2581,9 +2581,6 @@
 html {
   scroll-behavior: smooth;
 }
-* {
-  color: white;
-}
 @layer base {
   :where(:root),:root:has(input.theme-controller[value=light]:checked),[data-theme=light] {
     color-scheme: light;
