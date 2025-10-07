@@ -6,6 +6,7 @@ function email() {
     alert("Please enter a message.");
   } else {
     fetch('source/email.php', {
+    fetch('https://transtracheal-savanna-unfederative.ngrok-free.dev/email/email.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -24,6 +25,7 @@ function email() {
     message.value = "";
   }
 }
+<<<<<<< HEAD
 
 
 
