@@ -4,7 +4,7 @@ function email() {
   if (message.value === "") {
     alert("Please enter a message.");
   } else {
-    fetch('https://colonially-nonhallucinated-lai.ngrok-free.dev/cajx-it.github.io/source/email.php', {
+    fetch('https://transtracheal-savanna-unfederative.ngrok-free.dev/email/email.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
