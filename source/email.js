@@ -65,3 +65,5 @@ function hideAlert() {
       alertBox.classList.add("hidden");
     }, 500); // match duration-500
 }
+=======
+>>>>>>> 5d259ba582321f30c9b8b061ab0be8ae5ff5a899
