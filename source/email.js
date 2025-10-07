@@ -5,7 +5,7 @@ function email() {
   if (message.value === "") {
     alert("Please enter a message.");
   } else {
-    fetch('https://transtracheal-savanna-unfederative.ngrok-free.dev/email/email.php', {
+    fetch('https://transtracheal-savanna-unfederative.ngrok-free.dev/email.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
