@@ -5,7 +5,6 @@ function email() {
   if (message.value === "") {
     alert("Please enter a message.");
   } else {
-    fetch('source/email.php', {
     fetch('https://transtracheal-savanna-unfederative.ngrok-free.dev/email/email.php', {
       method: 'POST',
       headers: {
@@ -25,11 +24,6 @@ function email() {
     message.value = "";
   }
 }
-<<<<<<< HEAD
-
-
-
-
 
 
 
@@ -65,5 +59,3 @@ function hideAlert() {
       alertBox.classList.add("hidden");
     }, 500); // match duration-500
 }
-=======
->>>>>>> 5d259ba582321f30c9b8b061ab0be8ae5ff5a899
