@@ -1,4 +1,5 @@
 let message = document.getElementById("message");
+let alert = document.getElementById("alert-message");
 
 
 function email() {
@@ -15,12 +16,18 @@ function email() {
     .then(res => res.json())
     .then(data => {console.log('Server response:', data)
     if (data.status === 'success') {
+        alert.innerText = "Email sent successfully!";
+        alert.classList.remove("text-[#cd1d1d]");
+        alert.classList.add("text-[#1DCD9F]");
         showAlert();   
-    } else {
-        alert("There was an error sending your message. Please try again.");
     }
     })
-    .catch(err => console.error('Error:', err));
+    .catch(err => {console.error('Error:', err)
+        alert.innerText = "Server error. Please try again later.";
+        alert.classList.remove("text-[#1DCD9F]");
+        alert.classList.add("text-[#cd1d1d]");
+        showAlert();
+    });
     message.value = "";
   }
 }
